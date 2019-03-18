@@ -33,7 +33,8 @@ config.vm.define "box1" do |box1|
   
 
 config.vm.define "box2" do |box2|
-
+##comment below is from Adam
+##change box2.vm.bo="debian/jessie64" to box2.vm.box="debian/jessie64"
     box2.vm.bo="debian/jessie64"
 box2.vm.provision "shell", inline: <<-SHELL
 		sudo apt-get update
