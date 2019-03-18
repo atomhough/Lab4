@@ -3,6 +3,7 @@ Vagrant.configure("2") do |config|
 config.vm.provision "shell", inline: <<-SHELL
         
 sudo apt-get update
+
       SHELL
 
 
@@ -28,18 +29,22 @@ config.vm.define "box1" do |box1|
 
   end
 
-config.vm.define "box3" do |box2|
 
-    box2.vm.box="debian/jessie64"
+  
+
+config.vm.define "box2" do |box2|
+
+    box2.vm.bo="debian/jessie64"
 box2.vm.provision "shell", inline: <<-SHELL
 		sudo apt-get update
                 
 	      sudo apt-get install -y nginx
+
             SHELL
 
     
 
-    box2.vm.network :forwarded_port, guest: 22, host: 10222, id: "hss"
+    box2.vm.network :forwarded_port, guest: 22, host: 10222, id: "ssh"
 
     box2.vm.network :private_network, ip: "192.168.56.102"
 
